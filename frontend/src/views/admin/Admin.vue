@@ -65,13 +65,13 @@
     VerifySession
   } from '@/api/api'
   import TinymceContainer from '@/components/editor/Tinymce'
-  import QuillContainer from '@/components/editor/Quill'
+  // import QuillContainer from '@/components/editor/Quill'
   // import Base64 from 'js-base64'
   let Base64 = require('js-base64').Base64;
   export default {
     name: 'AdminContainer',
     components:{
-      TinymceContainer, QuillContainer
+      TinymceContainer
     },
     data() {
       return {

@@ -10,12 +10,12 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 
-import VueQuillEditor  from 'vue-quill-editor'
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
+// import VueQuillEditor  from 'vue-quill-editor'
+// import 'quill/dist/quill.core.css'
+// import 'quill/dist/quill.snow.css'
+// import 'quill/dist/quill.bubble.css'
  
-Vue.use(VueQuillEditor);
+// Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
