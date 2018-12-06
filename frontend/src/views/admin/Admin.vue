@@ -111,6 +111,7 @@
       addArticle: function(id) {
         if (id == -1) {
           //add
+          this.article.outline = this.article.content.substring(0, 128);
           console.info('add article:', this.article)
           AddArticle(id, this.article).then((res) => {
             if (res.ResultCode == 0) {
@@ -144,8 +145,7 @@
       },
       Content: function(){
         if(this.article.content){
-        return Base64.decode(this.article.content);
-
+          return Base64.decode(this.article.content);
         }
         return ""
       }
@@ -153,11 +153,10 @@
     mounted() {
     },
     created(){
-                  console.info('admin', sessionStorage);
-
+      console.info('admin', sessionStorage);
       if(!sessionStorage.getItem('session') || !sessionStorage.getItem('loginid')){
         this.$router.push('/login')
-
+        sessionStorage.setItem('prevPath', this.$route.path);
       }
       VerifySession({loginid:sessionStorage.getItem('loginid')}).then((res)=>{
         console.info(res)
@@ -175,6 +174,7 @@
           }
         } else {
           console.error("session error")
+          sessionStorage.setItem('prevPath', this.$route.path);
           this.$router.push('/login')
         }
       })

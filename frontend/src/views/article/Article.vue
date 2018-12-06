@@ -1,27 +1,36 @@
 <template>
   <div id='article-container'>
-    <el-row>
+        <header-container :isHome='true'></header-container>
+    <el-row class="article-title">
       <el-col class="" :span=21>
         <h3>
           {{article.title}}
         </h3>
       </el-col>
       <el-col :span='3'>
-        <el-button type='text' @click="$router.push({path:'/', query:{categoryId:categoryId}})">home</el-button>
-        <el-button type='text' @click="$router.push({path:'/admin', query:{id:article.id}})">edit</el-button>
+        <h3> 
+          <i class="el-icon-edit" @click="$router.push({path:'/admin', query:{id:article.id}})" v-if="edit"></i>
+        </h3>
+        <!--  -->
       </el-col>
     </el-row>
     <el-row class="line"></el-row>
-    <div v-html="vhtml">
+    <div v-html="vhtml" class="content">
     </div>
+ 
   </div>
 </template>
 
 <script>
 import {GetArticle} from '@/api/api'
+import HeaderContainer from '@/components/header/Header.vue'
+
 let Base64 = require('js-base64').Base64;
 export default {
   name:"ArticleContainer",
+  components:{
+    HeaderContainer
+  },
   data(){
     return {
       article:{
@@ -32,6 +41,7 @@ export default {
       },
       id:0,
       vhtml:'',
+      edit:false,
     }
   },
   methods:{
@@ -46,17 +56,33 @@ export default {
         }
       })
     },
-
+    
   },
   created(){
 
   },
   mounted(){
     this.getArticle()
+                    this.edit = sessionStorage.getItem('session') != undefined && sessionStorage.getItem('session') != ''
+
+  },
+  watch:{
   }
 }
 </script>
 
 <style>
+  .article-title {
+    text-align: center;
+    background-color: #F2F6FC;
+    /* display: table-cell; */
+    vertical-align: middle;
+  }
+  .content {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    background-color: #F2F6FC;
 
+  }
 </style>

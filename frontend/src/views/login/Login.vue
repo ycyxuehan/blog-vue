@@ -38,7 +38,8 @@
           if(res.ResultCode == 0){
             sessionStorage.setItem("session", res.ResultData.session)
             sessionStorage.setItem("loginid", res.ResultData.loginid)
-            this.$router.push('/admin')
+            sessionStorage.setItem("user", res.ResultData.user)
+            this.$router.push(sessionStorage.getItem('prevPath'))
           }else{
             console.error(res.ResultString)
           }

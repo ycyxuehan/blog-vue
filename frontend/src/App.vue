@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-       <el-main><router-view/></el-main>
+       <router-view/>
        <el-footer><footer-container></footer-container></el-footer>
     </el-container>
   </div>
@@ -25,5 +25,11 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     margin-top: 0px;
+  }
+  .el-footer {
+    height: 200px;
+    padding: 0px;
+    /* position: fixed;
+    bottom: 1024px; */
   }
 </style>

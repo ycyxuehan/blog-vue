@@ -17,3 +17,6 @@ export const DelArticle = name => { return axios.delete(`${base}/article/${name}
 
 export const Login = params => { return axios.post(`${base}/user/login`, params).then(res => res.data) }
 export const VerifySession = params => { return axios.get(`${base}/user/session`, {params: params}).then(res => res.data) }
+
+export const Title = "Bing's blog"
+export const Note = "一个自主开发的丑的掉渣的博客"

@@ -1,6 +1,6 @@
 <template>
   <div id='home-container'>
-    <header-container :title="title" :note='note'></header-container>
+    <header-container :isHome='false'></header-container>
     <menu-container></menu-container>
     <articles-card-container :articles='articles'></articles-card-container>
   </div>
@@ -16,8 +16,6 @@
     data() {
       return {
         msg: 'home page is coding',
-        title: "Bing's blog",
-        note: 'a good blog',
         articles: []
       }
     },

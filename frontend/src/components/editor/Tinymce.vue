@@ -18,6 +18,7 @@
     import 'tinymce/plugins/colorpicker'
     import 'tinymce/plugins/textcolor'
     import 'tinymce/plugins/codesample'
+    import 'tinymce/plugins/visualblocks'
     export default {
         name: 'TinymceContainer',
         props:['content'],
@@ -34,8 +35,8 @@
                     language: 'zh_CN',
                     skin_url: '/static/tinymce/skins/light',
                     height: 600,
-                    plugins: 'link lists image code table colorpicker textcolor wordcount contextmenu codesample',
-                    toolbar: 'bold italic underline strikethrough | fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote| undo redo | link unlink image code | removeformat |  codesample ',
+                    plugins: 'link lists image code table colorpicker textcolor wordcount contextmenu codesample visualblocks',
+                    toolbar: 'bold italic underline strikethrough | fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote| undo redo | link unlink image code | removeformat |  codesample visualblocks ',
                     branding: false,
                     menubar: false,
                 }
@@ -47,7 +48,7 @@
                         // this.tinymceHtml = this.content;
 
             tinymce.init(this.editorInit);
-            // tinymce.setContent(this.content);
+            tinymce.setContent(this.content);
             // let a = 1;
         },
         created(){

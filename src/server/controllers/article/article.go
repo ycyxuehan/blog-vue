@@ -115,6 +115,7 @@ func (a *ArticleController)Post(){
 		return
 	}
 	ar.GenerateID()
+	
 	res, err := ar.Save(bingo.DBConnection)
 	if err != nil {
 		bingo.Logger.Error("save article error: %s", err)

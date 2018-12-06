@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .footer {
         background-color: rgb(146, 140, 148);
         padding-top: 1em;

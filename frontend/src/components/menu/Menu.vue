@@ -12,6 +12,7 @@
       </el-popover>
      </el-col>
    </el-row>
+   <el-row class="line"></el-row>
 </div>
 </template>
 
@@ -45,13 +46,14 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .menu {
-    background-color: rgba(247, 244, 244, 0.89);
+    background-color: #F2F6FC;
+    padding: 0.3em;
   }
   .menu-row{
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
   .menu-row button {
-    width: 90%;
+    width: 80%;
   }
 </style>
