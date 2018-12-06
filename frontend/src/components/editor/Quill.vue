@@ -27,12 +27,6 @@
 </template>
 
 <script>
-    import VueQuillEditor  from 'vue-quill-editor'
-    import 'quill/dist/quill.core.css'/*  */
-    import 'quill/dist/quill.snow.css'
-    import 'quill/dist/quill.bubble.css'
-    
-    // Vue.use(VueQuillEditor);
   const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
      ['blockquote', 'code-block'],
@@ -51,7 +45,6 @@
   ]
   export default {
       name:'QuillContainer',
-    //   components:{VueQuillEditor},
     data() {
       return {
         quillUpdateImg: false, // 根据图片上传状态来确定是否显示loading动画，刚开始是false,不显示
@@ -124,8 +117,8 @@
     }
   }
 </script>
-<style lang='scss' scoped>
-.quill-code {
+<style scoped>
+/* .quill-code {
     border: none;
     height: auto;
     > code {
@@ -139,5 +132,5 @@
       overflow-y: auto;
       resize: vertical;
     }
-  }
+  } */
 </style>
