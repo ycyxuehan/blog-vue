@@ -42,15 +42,33 @@
           <el-col :span='12' class="card-input">
             <el-input v-model="article.title"><template slot="prepend">标题:</template></el-input>
           </el-col>
-          <el-col :span='4'>
+          <el-col :span='4' class="card-input">
              <el-button @click="addArticle(article.id)">保存</el-button>
+             <el-button @click="$router.push('/')">返回首页</el-button>
           </el-col>
         </el-row> 
       <el-row style="height:0.5em;"></el-row>
-      <div>
-        <!-- <quill-container :content='article.content'></quill-container> -->
+        <el-row>
+          <el-col :span='12'>
+            <el-card shadow="never" class="card">
         <tinymce-container @Change='updateContent' :content='Content()'></tinymce-container>
-      </div>
+
+            </el-card>
+          </el-col>
+          <el-col :span='12'>
+            <el-main style="height:600px;" v-html="contentHtml">
+
+            </el-main>
+            <!-- <el-card shadow="never" class="card">
+            <div v-html="contentHtml" ></div>
+            </el-card> -->
+            
+
+            
+          </el-col>
+        </el-row>
+        <!-- <quill-container :content='article.content'></quill-container> -->
+
     </el-card>
   </div>
 </template>
@@ -85,7 +103,8 @@
         },
         categoryId: 0,
         categories: [],
-        cateValue: ''
+        cateValue: '',
+        contentHtml:'',
       }
     },
     methods: {
@@ -135,12 +154,15 @@
         GetArticle(this.articleId, {}).then((res) => {
           if (res.ResultCode == 0) {
             this.article = res.ResultData
+            this.contentHtml = this.Content();
+
           } else {
             console.error(res.ResultString)
           }
         })
       },
       updateContent: function(content){
+        this.contentHtml = content;
         this.article.content = Base64.encode(content);
       },
       Content: function(){
@@ -151,6 +173,10 @@
       }
     },
     mounted() {
+          this.articleId = this.$route.query.id
+            if (this.articleId) {
+              this.getArticle();
+            }
     },
     created(){
       console.info('admin', sessionStorage);
@@ -166,10 +192,6 @@
             if (now >= res.ResultData.expiretime * 1000){
               console.error("session expired")
               this.$router.push('/login')
-            }
-            this.articleId = this.$route.query.id
-            if (this.articleId) {
-              this.getArticle();
             }
           }
         } else {
