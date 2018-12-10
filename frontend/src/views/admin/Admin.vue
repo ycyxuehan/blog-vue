@@ -196,7 +196,7 @@
           }
         } else {
           console.error("session error")
-          sessionStorage.setItem('prevPath', this.$route.path);
+          sessionStorage.setItem('prevPath', this.$route.fullPath);
           this.$router.push('/login')
         }
       })

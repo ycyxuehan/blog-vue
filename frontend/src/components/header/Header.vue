@@ -36,7 +36,7 @@ import {GetArticle, Title, Note} from '@/api/api'
                 sessionStorage.clear();
             },
             Login: function(){
-                sessionStorage.setItem('prevPath', this.$route.path);
+                sessionStorage.setItem('prevPath', this.$route.fullPath);
                 this.$router.push('/login');
             }
         },

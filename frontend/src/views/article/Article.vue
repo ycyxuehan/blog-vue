@@ -63,7 +63,7 @@ export default {
   },
   mounted(){
     this.getArticle()
-                    this.edit = sessionStorage.getItem('session') != undefined && sessionStorage.getItem('session') != ''
+    this.edit = sessionStorage.getItem('session') != undefined && sessionStorage.getItem('session') != ''
 
   },
   watch:{
